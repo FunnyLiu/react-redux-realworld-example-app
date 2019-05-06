@@ -21,6 +21,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onClickTag: (tag, pager, payload) =>
     dispatch({ type: APPLY_TAG_FILTER, tag, pager, payload }),
+    //when its onload, dispath homepageloaded
   onLoad: (tab, pager, payload) =>
     dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
   onUnload: () =>
@@ -33,7 +34,7 @@ class Home extends React.Component {
     const articlesPromise = this.props.token ?
       agent.Articles.feed :
       agent.Articles.all;
-
+    //onload callback
     this.props.onLoad(tab, articlesPromise, Promise.all([agent.Tags.getAll(), articlesPromise()]));
   }
 

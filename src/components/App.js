@@ -24,6 +24,7 @@ const mapStateToProps = state => {
   }};
 
 const mapDispatchToProps = dispatch => ({
+  //when it onload,dispatch app load info
   onLoad: (payload, token) =>
     dispatch({ type: APP_LOAD, payload, token, skipTracking: true }),
   onRedirect: () =>
